@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/created-by: eks-workshop
     app.kubernetes.io/type: app
+    fero: testing
 spec:
   replicas: 1
   selector:
@@ -53,13 +54,13 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 9000
+              port: 8080
             initialDelaySeconds: 15
             periodSeconds: 3
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 9000
+              port: 8080
             initialDelaySeconds: 45
             periodSeconds: 3
           resources:
